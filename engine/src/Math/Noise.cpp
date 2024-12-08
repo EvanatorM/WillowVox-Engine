@@ -9,13 +9,13 @@ namespace WillowVox
         noise.SetNoiseType(FastNoiseLite::NoiseType_OpenSimplex2);
     }
 
-    float Noise::GetValue2D(int x, int y)
+    float Noise::GetValue2D(NoiseSettings& settings, int x, int y)
     {
-        return noise.GetNoise((float)x * .87f, (float)y * .87f) * 10.0f;
+        return noise.GetNoise((float)x * settings.frequency, (float)y * settings.frequency) * settings.amplitude;
     }
 
-    float Noise::GetValue3D(int x, int y, int z)
+    float Noise::GetValue3D(NoiseSettings& settings, int x, int y, int z)
     {
-        return noise.GetNoise((float)x * 10.4f, (float)y * 10.4f, float(z) * 10.4f);
+        return noise.GetNoise((float)x * settings.frequency, (float)y * settings.frequency, float(z) * settings.frequency) * settings.amplitude;
     }
 }

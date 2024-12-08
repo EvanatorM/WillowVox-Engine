@@ -4,7 +4,7 @@
 #include <WillowVoxEngine/World/ChunkData.h>
 #include <WillowVoxEngine/Math/ivec3Hash.h>
 #include <WillowVoxEngine/Rendering/Camera.h>
-#include <WillowVoxEngine/World/TerrainGen.h>
+#include <WillowVoxEngine/World/WorldGen.h>
 #include <glm/glm.hpp>
 #include <unordered_map>
 #include <queue>
@@ -26,6 +26,7 @@ namespace WillowVox
         Chunk* GetChunk(glm::ivec3 pos);
 
         void SetPlayerObj(Camera* camera);
+        void SetWorldGen(WorldGen* gen) { worldGen = gen; }
 
         int renderDistance = 5;
         int renderHeight = 2;
@@ -40,7 +41,7 @@ namespace WillowVox
     private:
         void ChunkThreadUpdate();
 
-        TerrainGen worldGen;
+        WorldGen* worldGen;
 
         std::unordered_map<glm::ivec3, Chunk*, ivec3Hash> chunks;
         std::unordered_map<glm::ivec3, ChunkData*, ivec3Hash> chunkData;

@@ -14,5 +14,9 @@ public:
         PlayerController* p = new PlayerController(mainCamera);
         player->AddComponent(p);
         AddGameObject(player);
+
+        WillowVox::NoiseSettings* noise = new WillowVox::NoiseSettings(1.05f, 10.0f);
+        WillowVox::TerrainGen* worldGen = new WillowVox::TerrainGen(*noise);
+        chunkManager.SetWorldGen(worldGen);
     }
 };

@@ -7,7 +7,7 @@ namespace WillowVox
 {
     uint16_t TerrainGen::GetBlock(int x, int y, int z)
     {
-        float noise = Noise::GetValue2D(x, z);
+        float noise = Noise::GetValue2D(noiseSettings, x, z);
         int block = (int)roundf(noise);
 
         if (y <= block)

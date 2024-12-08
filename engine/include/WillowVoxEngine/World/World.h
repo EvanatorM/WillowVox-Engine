@@ -25,10 +25,12 @@ namespace WillowVox
 
         Camera* mainCamera;
 
+    protected:
+        ChunkManager chunkManager;
+
     private:
         std::vector<GameObject*> gameObjects;
         std::vector<MeshRenderer*> meshRenderers;
-        ChunkManager chunkManager;
         // vvv Test code vvv
         Shader* solidShader;
         Shader* fluidShader;

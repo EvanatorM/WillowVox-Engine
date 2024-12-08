@@ -21,6 +21,9 @@
 #include <WillowVoxEngine/Events/MouseScrollEvent.h>
 // Input
 #include <WillowVoxEngine/Input/Input.h>
+// Math
+#include <WillowVoxEngine/Math/Noise.h>
+#include <WillowVoxEngine/Math/NoiseSettings.h>
 // Physics
 #include <WillowVoxEngine/Physics/Physics.h>
 // Rendering
@@ -39,6 +42,8 @@
 #include <WillowVoxEngine/World/World.h>
 #include <WillowVoxEngine/World/GameObject.h>
 #include <WillowVoxEngine/World/Component.h>
+#include <WillowVoxEngine/World/WorldGen.h>
+#include <WillowVoxEngine/World/TerrainGen.h>
 // Math (TODO: Don't expose any external libraries to client applications)
 #include <glm/glm.hpp>
 

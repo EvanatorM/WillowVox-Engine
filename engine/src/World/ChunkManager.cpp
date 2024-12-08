@@ -183,7 +183,7 @@ namespace WillowVox
 
                         ChunkData* data = new ChunkData();
                         data->offset = chunkPos * CHUNK_SIZE;
-                        worldGen.GenerateChunkData(*data);
+                        worldGen->GenerateChunkData(*data);
 
                         // Set chunk's chunk data
                         chunk->chunkData = data;
@@ -212,7 +212,7 @@ namespace WillowVox
                         
                         ChunkData* data = new ChunkData();
                         data->offset = checkPos * CHUNK_SIZE;
-                        worldGen.GenerateChunkData(*data);
+                        worldGen->GenerateChunkData(*data);
 
                         // Set chunk's chunk data
                         chunk->northData = data;
@@ -241,7 +241,7 @@ namespace WillowVox
                         
                         ChunkData* data = new ChunkData();
                         data->offset = checkPos * CHUNK_SIZE;
-                        worldGen.GenerateChunkData(*data);
+                        worldGen->GenerateChunkData(*data);
 
                         // Set chunk's chunk data
                         chunk->southData = data;
@@ -270,7 +270,7 @@ namespace WillowVox
                         
                         ChunkData* data = new ChunkData();
                         data->offset = checkPos * CHUNK_SIZE;
-                        worldGen.GenerateChunkData(*data);
+                        worldGen->GenerateChunkData(*data);
 
                         // Set chunk's chunk data
                         chunk->eastData = data;
@@ -299,7 +299,7 @@ namespace WillowVox
                         
                         ChunkData* data = new ChunkData();
                         data->offset = checkPos * CHUNK_SIZE;
-                        worldGen.GenerateChunkData(*data);
+                        worldGen->GenerateChunkData(*data);
 
                         // Set chunk's chunk data
                         chunk->westData = data;
@@ -328,7 +328,7 @@ namespace WillowVox
                         
                         ChunkData* data = new ChunkData();
                         data->offset = checkPos * CHUNK_SIZE;
-                        worldGen.GenerateChunkData(*data);
+                        worldGen->GenerateChunkData(*data);
 
                         // Set chunk's chunk data
                         chunk->upData = data;
@@ -357,7 +357,7 @@ namespace WillowVox
                         
                         ChunkData* data = new ChunkData();
                         data->offset = checkPos * CHUNK_SIZE;
-                        worldGen.GenerateChunkData(*data);
+                        worldGen->GenerateChunkData(*data);
 
                         // Set chunk's chunk data
                         chunk->downData = data;
