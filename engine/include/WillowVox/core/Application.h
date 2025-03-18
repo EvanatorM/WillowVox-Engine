@@ -4,7 +4,6 @@
 #include <WillowVox/rendering/RenderingAPI.h>
 #include <WillowVox/rendering/Window.h>
 #include <WillowVox/world/World.h>
-#include <imgui/imgui.h>
 #include <iostream>
 
 namespace WillowVox
@@ -33,7 +32,6 @@ namespace WillowVox
 		virtual void Render() = 0;
 		virtual void ConfigurePostProcessing() = 0;
 		virtual void RenderUI() = 0;
-		ImGuiContext* GetImGuiContext();
 
 		RenderingAPI* _renderingAPI;
 		Window* _window;

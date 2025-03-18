@@ -16,7 +16,6 @@
 #include <WillowVox/resources/Blocks.h>
 #include <TestGame.h>
 #include <TestWorld.h>
-#include <imgui/imgui.h>
 #include <cstdint>
 
 using namespace WillowVox;
@@ -223,14 +222,7 @@ namespace TestGame
 
 		void RenderUI() override
 		{
-			ImGui::SetCurrentContext(GetImGuiContext());
-			ImGui::Begin("Test Game", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
-			ImGui::Text("ms: %f", m_deltaTime);
-			if (ImGui::SliderInt("Render Distance", &m_world->m_chunkManager->m_renderDistance, 0, 20))
-				m_world->m_chunkManager->ClearChunkQueue();
-			if (ImGui::Checkbox("Vsync", &_vsync))
-				_renderingAPI->SetVsync(_vsync);
-			ImGui::End();
+
 		}
 
 	private:

@@ -1,7 +1,3 @@
-#include <imgui/imgui.h>
-#include <imgui/imgui_impl_glfw.h>
-#include <imgui/imgui_impl_opengl3.h>
-
 #include <WillowVox/rendering/opengl/OpenGLWindow.h>
 #include <WillowVox/core/Logger.h>
 #include <WillowVox/input/opengl/OpenGLKey.h>
@@ -170,21 +166,9 @@ namespace WillowVox
 		_postProcessShader->Bind();
 		_postProcessShader->SetInt("screenTexture", 0);
 		_postProcessShader->SetInt("depthTexture", 1);
-
-		// Initialize ImGui
-		IMGUI_CHECKVERSION();
-		ImGui::CreateContext();
-		ImGuiIO& io = ImGui::GetIO(); (void)io;
-		ImGui::StyleColorsDark();
-		ImGui_ImplGlfw_InitForOpenGL(_window, true);
-		ImGui_ImplOpenGL3_Init("#version 330");
 	}
 	OpenGLWindow::~OpenGLWindow()
 	{
-		ImGui_ImplOpenGL3_Shutdown();
-		ImGui_ImplGlfw_Shutdown();
-		ImGui::DestroyContext();
-
 		glfwDestroyWindow(_window);
 
 		WindowCloseEventDispatcher.Dispatch(*(new WindowCloseEvent()));
@@ -251,15 +235,12 @@ namespace WillowVox
 
 	void OpenGLWindow::UIStart()
 	{
-		ImGui_ImplOpenGL3_NewFrame();
-		ImGui_ImplGlfw_NewFrame();
-		ImGui::NewFrame();
+
 	}
 
 	void OpenGLWindow::UIEnd()
 	{
-		ImGui::Render();
-		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
 	}
 
 	void OpenGLWindow::FrameEnd()

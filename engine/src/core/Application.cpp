@@ -68,8 +68,4 @@ namespace WillowVox
 			_window->FrameEnd();
 		}
 	}
-
-	ImGuiContext* Application::GetImGuiContext() {
-		return ImGui::GetCurrentContext();
-	}
 }

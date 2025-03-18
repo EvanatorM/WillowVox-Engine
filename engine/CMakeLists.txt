@@ -44,7 +44,6 @@ target_include_directories(WillowVoxEngine PUBLIC ${CMAKE_SOURCE_DIR}/external)
 
 # Link libraries
 target_link_libraries(WillowVoxEngine PRIVATE ${CMAKE_SOURCE_DIR}/external/glfw3.lib)
-target_link_libraries(WillowVoxEngine PUBLIC imgui)
 
 # Set output properties for the library
 set_target_properties(WillowVoxEngine PROPERTIES
