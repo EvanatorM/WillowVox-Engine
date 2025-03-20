@@ -26,6 +26,8 @@ add_library(WillowVoxEngine SHARED
     src/rendering/engine-default/TextureMaterial.cpp
     # resources
     src/resources/Blocks.cpp
+    # ui
+    src/ui/OpenGLUIManager.cpp
     # world
     src/world/Chunk.cpp
     src/world/ChunkManager.cpp

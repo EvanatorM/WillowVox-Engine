@@ -14,6 +14,7 @@
 #include <WillowVox/rendering/engine-default/TextureMaterial.h>
 #include <WillowVox/physics/Physics.h>
 #include <WillowVox/resources/Blocks.h>
+#include <WillowVox/ui/OpenGLUIManager.h>
 #include <TestGame.h>
 #include <TestWorld.h>
 #include <cstdint>
@@ -91,6 +92,10 @@ namespace TestGame
 			_test = new PostProcessingShader(_renderingAPI->CreateShader("assets/shaders/post-processing/test_vert.glsl", "assets/shaders/post-processing/test_frag.glsl"), false);
 
 			_window->AddPostProcessingShader(_test);
+
+			_uiManager = new OpenGLUIManager(_window, _renderingAPI);
+
+			_texture = _renderingAPI->CreateTexture("assets/sprites/block_map.png");
 		}
 
 		void Update() override
@@ -222,7 +227,7 @@ namespace TestGame
 
 		void RenderUI() override
 		{
-
+			_uiManager->DrawImage(100, 100, 100, 100, _texture);
 		}
 
 	private:
@@ -235,6 +240,9 @@ namespace TestGame
 		bool _firstFrame = true;
 		bool _paused = false;
 		bool _vsync = true;
+
+		UIManager* _uiManager;
+		Texture* _texture;
 	};
 }
 
