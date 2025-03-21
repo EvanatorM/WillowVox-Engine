@@ -13,13 +13,16 @@ namespace WillowVox
 	class WILLOWVOX_API UIManager
 	{
 	public:
-		UIManager(Window* window, RenderingAPI* api)
-			: _window(window), _api(api) {}
+		UIManager(Window* window, RenderingAPI* api);
 
 		virtual void DrawImage(float xPos, float yPos, float xSize, float ySize, Texture* tex) = 0;
+		virtual void DrawColor(float xPos, float yPos, float xSize, float ySize, glm::vec4 color) = 0;
 
 	protected:
 		Window* _window;
 		RenderingAPI* _api;
+		
+		Shader* _imageShader;
+		Shader* _colorShader;
 	};
 }

@@ -27,6 +27,7 @@ add_library(WillowVoxEngine SHARED
     # resources
     src/resources/Blocks.cpp
     # ui
+    src/ui/UIManager.cpp
     src/ui/OpenGLUIManager.cpp
     # world
     src/world/Chunk.cpp

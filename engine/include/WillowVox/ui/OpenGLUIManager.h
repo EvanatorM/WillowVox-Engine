@@ -12,9 +12,9 @@ namespace WillowVox
         ~OpenGLUIManager();
 
         void DrawImage(float xPos, float yPos, float xSize, float ySize, Texture* tex) override;
+		void DrawColor(float xPos, float yPos, float xSize, float ySize, glm::vec4 color) override;
 
     private:
-        Shader* _uiShader;
         unsigned int _vao;
 		unsigned int _vbo;
 		unsigned int _ebo;

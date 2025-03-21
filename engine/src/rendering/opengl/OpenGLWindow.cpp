@@ -235,12 +235,16 @@ namespace WillowVox
 
 	void OpenGLWindow::UIStart()
 	{
-
+        RenderingAPI::m_renderingAPI->SetCullFace(false);
+        RenderingAPI::m_renderingAPI->SetDepthTest(false);
+		RenderingAPI::m_renderingAPI->SetBlending(true);
 	}
 
 	void OpenGLWindow::UIEnd()
 	{
-
+		RenderingAPI::m_renderingAPI->SetCullFace(true);
+        RenderingAPI::m_renderingAPI->SetDepthTest(true);
+		RenderingAPI::m_renderingAPI->SetBlending(false);
 	}
 
 	void OpenGLWindow::FrameEnd()
