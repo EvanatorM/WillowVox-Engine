@@ -11,8 +11,8 @@ namespace WillowVox
         OpenGLUIManager(Window* window, RenderingAPI* api);
         ~OpenGLUIManager();
 
-        void DrawImage(float xPos, float yPos, float xSize, float ySize, Texture* tex) override;
-		void DrawColor(float xPos, float yPos, float xSize, float ySize, glm::vec4 color) override;
+        void DrawImage(float xPos, float yPos, Anchor anchor, float xSize, float ySize, Texture* tex) override;
+		void DrawColor(float xPos, float yPos, Anchor anchor, float xSize, float ySize, glm::vec4 color) override;
 
     private:
         unsigned int _vao;

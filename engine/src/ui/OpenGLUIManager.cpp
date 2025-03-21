@@ -45,7 +45,7 @@ namespace WillowVox
         glDeleteVertexArrays(1, &_vao);
     }
 
-    void OpenGLUIManager::DrawImage(float xPos, float yPos, float xSize, float ySize, Texture* tex)
+    void OpenGLUIManager::DrawImage(float xPos, float yPos, Anchor anchor, float xSize, float ySize, Texture* tex)
     {
         glBindVertexArray(_vao);
 		glBindBuffer(GL_ARRAY_BUFFER, _vbo);
@@ -54,13 +54,14 @@ namespace WillowVox
         _imageShader->Bind();
         _imageShader->SetVec2("pos", (float)xPos, (float)yPos);
         _imageShader->SetVec2("size", (float)xSize, (float)ySize);
+        _imageShader->SetInt("anchor", (int)anchor);
 
         tex->BindTexture(Texture::TEX00);
 
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
     }
 
-    void OpenGLUIManager::DrawColor(float xPos, float yPos, float xSize, float ySize, glm::vec4 color)
+    void OpenGLUIManager::DrawColor(float xPos, float yPos, Anchor anchor, float xSize, float ySize, glm::vec4 color)
     {
         glBindVertexArray(_vao);
 		glBindBuffer(GL_ARRAY_BUFFER, _vbo);
@@ -70,6 +71,7 @@ namespace WillowVox
         _colorShader->SetVec2("pos", (float)xPos, (float)yPos);
         _colorShader->SetVec2("size", (float)xSize, (float)ySize);
         _colorShader->SetVec4("color", color);
+        _colorShader->SetInt("anchor", (int)anchor);
 
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
     }
