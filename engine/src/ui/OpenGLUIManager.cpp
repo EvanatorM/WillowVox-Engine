@@ -52,7 +52,6 @@ namespace WillowVox
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _ebo);
 
         _imageShader->Bind();
-        _imageShader->SetMat4("projection", _ortho);
         _imageShader->SetVec2("pos", (float)xPos, (float)yPos);
         _imageShader->SetVec2("size", (float)xSize, (float)ySize);
 
@@ -68,7 +67,6 @@ namespace WillowVox
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _ebo);
 
         _colorShader->Bind();
-        _colorShader->SetMat4("projection", _ortho);
         _colorShader->SetVec2("pos", (float)xPos, (float)yPos);
         _colorShader->SetVec2("size", (float)xSize, (float)ySize);
         _colorShader->SetVec4("color", color);
