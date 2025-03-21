@@ -1,8 +1,6 @@
 #include <WillowVox/ui/OpenGLUIManager.h>
 #include <WillowVox/rendering/opengl/OpenGLAPI.h>
 #include <WillowVox/core/Logger.h>
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
 
 namespace WillowVox
 {
@@ -54,8 +52,7 @@ namespace WillowVox
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _ebo);
 
         _imageShader->Bind();
-        glm::mat4 ortho = glm::ortho(0.0f, (float)_window->GetWindowSize().x, 0.0f, (float)_window->GetWindowSize().y);
-        _imageShader->SetMat4("projection", ortho);
+        _imageShader->SetMat4("projection", _ortho);
         _imageShader->SetVec2("pos", (float)xPos, (float)yPos);
         _imageShader->SetVec2("size", (float)xSize, (float)ySize);
 
@@ -71,8 +68,7 @@ namespace WillowVox
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _ebo);
 
         _colorShader->Bind();
-        glm::mat4 ortho = glm::ortho(0.0f, (float)_window->GetWindowSize().x, 0.0f, (float)_window->GetWindowSize().y);
-        _colorShader->SetMat4("projection", ortho);
+        _colorShader->SetMat4("projection", _ortho);
         _colorShader->SetVec2("pos", (float)xPos, (float)yPos);
         _colorShader->SetVec2("size", (float)xSize, (float)ySize);
         _colorShader->SetVec4("color", color);

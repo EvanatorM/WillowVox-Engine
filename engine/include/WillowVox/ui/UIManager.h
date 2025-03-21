@@ -5,8 +5,8 @@
 #include <WillowVox/rendering/Texture.h>
 #include <WillowVox/rendering/Window.h>
 #include <WillowVox/rendering/RenderingAPI.h>
-#include <unordered_map>
-#include <cstdint>
+#include <WillowVox/rendering/Shader.h>
+#include <glm/glm.hpp>
 
 namespace WillowVox
 {
@@ -24,5 +24,7 @@ namespace WillowVox
 		
 		Shader* _imageShader;
 		Shader* _colorShader;
+
+		glm::mat4 _ortho;
 	};
 }

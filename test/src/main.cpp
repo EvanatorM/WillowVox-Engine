@@ -227,7 +227,7 @@ namespace TestGame
 
 		void RenderUI() override
 		{
-			_uiManager->DrawImage(100, 100, 100, 100, _texture);
+			_uiManager->DrawImage(100, 100, 150, 150, _texture);
 			_uiManager->DrawColor(300, 100, 100, 100, { 0.5f, 0.25f, 1.0f, 1.0f });
 		}
 
