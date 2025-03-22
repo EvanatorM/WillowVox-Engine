@@ -93,7 +93,7 @@ namespace TestGame
 
 			_window->AddPostProcessingShader(_test);
 
-			_uiManager = new OpenGLUIManager(_window, _renderingAPI);
+			_uiManager = _renderingAPI->CreateUIManager(_window, 1000.0f);
 
 			_texture = _renderingAPI->CreateTexture("assets/sprites/block_map.png");
 		}
