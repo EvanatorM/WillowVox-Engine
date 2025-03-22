@@ -6,6 +6,7 @@
 #include <WillowVox/rendering/BaseMaterial.h>
 #include <WillowVox/rendering/Mesh.h>
 #include <WillowVox/rendering/Texture.h>
+#include <WillowVox/ui/UIManager.h>
 #include <glm/glm.hpp>
 #include <cstdint>
 #include <cstddef>
@@ -30,6 +31,7 @@ namespace WillowVox
 		virtual Shader* CreateShaderFromString(const char* vertexShaderCode, const char* fragmentShaderCode) = 0;
 		virtual Mesh* CreateMesh() = 0;
 		virtual Texture* CreateTexture(const char* path) = 0;
+		virtual UIManager* CreateUIManager(Window* window, float virtualPixels) = 0;
 
 		// Vertex attributes
 		virtual void SetVertexAttrib1f(int id, uint32_t size, std::size_t offset) = 0;

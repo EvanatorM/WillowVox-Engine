@@ -4,7 +4,7 @@
 
 namespace WillowVox
 {
-    OpenGLUIManager::OpenGLUIManager(Window* window, RenderingAPI* api) : UIManager(window, api)
+    OpenGLUIManager::OpenGLUIManager(Window* window, float virtualPixels) : UIManager(window, virtualPixels)
     {
         glGenVertexArrays(1, &_vao);
 		glBindVertexArray(_vao);

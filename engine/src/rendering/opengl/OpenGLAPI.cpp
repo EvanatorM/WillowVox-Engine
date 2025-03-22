@@ -4,6 +4,7 @@
 #include <WillowVox/rendering/opengl/OpenGLShader.h>
 #include <WillowVox/rendering/opengl/OpenGLMesh.h>
 #include <WillowVox/rendering/opengl/OpenGLTexture.h>
+#include <WillowVox/ui/OpenGLUIManager.h>
 #include <WillowVox/core/Logger.h>
 
 namespace WillowVox
@@ -67,6 +68,11 @@ namespace WillowVox
 	Texture* OpenGLAPI::CreateTexture(const char* path)
 	{
 		return new OpenGLTexture(path);
+	}
+
+	UIManager* OpenGLAPI::CreateUIManager(Window* window, float virtualPixels)
+	{
+		return new OpenGLUIManager(window, virtualPixels);
 	}
 
     // Vertex attributes

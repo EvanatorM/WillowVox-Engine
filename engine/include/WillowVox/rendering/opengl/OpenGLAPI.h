@@ -19,6 +19,7 @@ namespace WillowVox
 		Shader* CreateShaderFromString(const char* vertexShaderCode, const char* fragmentShaderCode) override;
 		Mesh* CreateMesh() override;
 		Texture* CreateTexture(const char* path) override;
+		UIManager* CreateUIManager(Window* window, float virtualPixels) override;
 
 		// Vertex attributes
 		void SetVertexAttrib1f(int id, uint32_t size, std::size_t offset) override;

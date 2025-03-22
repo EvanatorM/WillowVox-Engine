@@ -4,7 +4,6 @@
 #include <WillowVox/ui/elements/UIElement.h>
 #include <WillowVox/rendering/Texture.h>
 #include <WillowVox/rendering/Window.h>
-#include <WillowVox/rendering/RenderingAPI.h>
 #include <WillowVox/rendering/Shader.h>
 #include <glm/glm.hpp>
 
@@ -26,18 +25,18 @@ namespace WillowVox
 			CENTER
 		};
 
-		UIManager(Window* window, RenderingAPI* api);
+		UIManager(Window* window, float virtualPixels);
 
 		virtual void DrawImage(float xPos, float yPos, Anchor anchor, float xSize, float ySize, Texture* tex) = 0;
 		virtual void DrawColor(float xPos, float yPos, Anchor anchor, float xSize, float ySize, glm::vec4 color) = 0;
 
 	protected:
 		Window* _window;
-		RenderingAPI* _api;
 		
 		Shader* _imageShader;
 		Shader* _colorShader;
 
+		float _virtualPixels;
 		glm::mat4 _ortho;
 	};
 }

@@ -8,7 +8,7 @@ namespace WillowVox
     class WILLOWVOX_API OpenGLUIManager : public UIManager
     {
     public:
-        OpenGLUIManager(Window* window, RenderingAPI* api);
+        OpenGLUIManager(Window* window, float virtualPixels);
         ~OpenGLUIManager();
 
         void DrawImage(float xPos, float yPos, Anchor anchor, float xSize, float ySize, Texture* tex) override;
