@@ -10,5 +10,5 @@ namespace WillowVox
 	{
 		m_renderingAPI = new OpenGLAPI();
 		return m_renderingAPI;
-	}	
+	}
 }

@@ -5,6 +5,8 @@
 
 namespace WillowVox
 {
+	UIManager* UIManager::m_uiManager = nullptr;
+
     UIManager::UIManager(Window* window, float virtualPixels)
         : _window(window), _virtualPixels(virtualPixels)
     {
@@ -35,5 +37,7 @@ namespace WillowVox
             _colorShader->SetMat4("ortho", _ortho);
             _colorShader->SetVec2("screenSize", { _virtualPixels * ratio, _virtualPixels});
         });
+
+        UIManager::m_uiManager = this;
     }
 }

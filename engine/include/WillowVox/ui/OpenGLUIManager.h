@@ -11,8 +11,8 @@ namespace WillowVox
         OpenGLUIManager(Window* window, float virtualPixels);
         ~OpenGLUIManager();
 
-        void DrawImage(float xPos, float yPos, Anchor anchor, float xSize, float ySize, Texture* tex) override;
-		void DrawColor(float xPos, float yPos, Anchor anchor, float xSize, float ySize, glm::vec4 color) override;
+        void DrawImage(UIElement& element, UITexture& tex) override;
+		void DrawColor(UIElement& element, UIColor& color) override;
 
     private:
         unsigned int _vao;
