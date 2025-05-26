@@ -3,35 +3,6 @@ project(WillowVoxEngine)
 
 # Define the library target
 add_library(WillowVoxEngine SHARED
-    # core
-    src/core/Application.cpp
-    src/core/Logger.cpp
-    # math
-    src/math/Noise.cpp
-    # physics
-    src/physics/Physics.cpp
-    # rendering
-    src/rendering/BaseMaterial.cpp
-    src/rendering/Camera.cpp
-    src/rendering/RenderingAPI.cpp
-    src/rendering/Window.cpp
-    src/rendering/opengl/OpenGLAPI.cpp
-    src/rendering/opengl/OpenGLMesh.cpp
-    src/rendering/opengl/OpenGLShader.cpp
-    src/rendering/opengl/OpenGLTexture.cpp
-    src/rendering/opengl/OpenGLWindow.cpp
-    src/rendering/engine-default/ChunkFluidMaterial.cpp
-    src/rendering/engine-default/ChunkSolidMaterial.cpp
-    src/rendering/engine-default/RawTriMaterial.cpp
-    src/rendering/engine-default/TextureMaterial.cpp
-    # resources
-    src/resources/Blocks.cpp
-    # world
-    src/world/Chunk.cpp
-    src/world/ChunkManager.cpp
-    src/world/NoiseWorldGen.cpp
-    src/world/TerrainGen.cpp
-    src/world/World.cpp
 
     # dependencies
     dependencies/include/glad/src/glad.c
