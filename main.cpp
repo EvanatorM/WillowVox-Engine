@@ -1,7 +1,7 @@
 #include <iostream>
-#include <core/Test.h>
+#include <core/core.h>
 
 int main() 
 {
-    WillowVox::Core::Test();
+    WillowVox::Logger::Log("Hello, WillowVox Engine!");
 }
