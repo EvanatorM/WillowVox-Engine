@@ -3,9 +3,9 @@
 
 using namespace WillowVox;
 
-namespace MyProject
+namespace WVTest
 {
-    class MyApp : public App
+    class TestApp : public App
     {
         void Start() override
         {
@@ -21,5 +21,5 @@ namespace MyProject
 
 WillowVox::App* WillowVox::CreateApp()
 {
-    return new MyProject::MyApp();
+    return new WVTest::TestApp();
 }
