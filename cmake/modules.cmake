@@ -10,8 +10,8 @@ macro(_add_engine_git_module NAME REPO COMMIT)
   )
   FetchContent_MakeAvailable(${NAME})
 
-  target_link_libraries(Test PRIVATE ${NAME})
-  target_include_directories(Test PRIVATE ${${NAME}_SOURCE_DIR}/include)
+  target_link_libraries(${PROJECT_NAME} PRIVATE ${NAME})
+  target_include_directories(${PROJECT_NAME} PRIVATE ${${NAME}_SOURCE_DIR}/include)
 endmacro()
 
-_add_engine_git_module(WVCore https://github.com/EvanatorM/WV-Core.git master)
+_add_engine_git_module(WVCore https://github.com/EvanatorM/WV-Core.git alpha-v0.1.0)

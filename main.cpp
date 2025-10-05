@@ -3,23 +3,23 @@
 
 using namespace WillowVox;
 
-namespace TestProject
+namespace MyProject
 {
-    class TestApp : public App
+    class MyApp : public App
     {
         void Start() override
         {
-            Logger::Log("Start");
+
         }
 
         void Update() override
         {
-            Logger::Log("Update");
+
         }
     };
 }
 
 WillowVox::App* WillowVox::CreateApp()
 {
-    return new TestProject::TestApp();
+    return new MyProject::MyApp();
 }
