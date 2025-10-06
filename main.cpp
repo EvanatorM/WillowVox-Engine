@@ -9,7 +9,12 @@ namespace WVTest
     {
         void Start() override
         {
-
+            Logger::Log("Test");
+            Logger::Warn("Test");
+            Logger::Error("Test");
+            Logger::EngineLog("Test");
+            Logger::EngineWarn("Test");
+            Logger::EngineError("Test");
         }
 
         void Update() override
