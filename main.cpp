@@ -1,6 +1,8 @@
 #include <wv/core.h>
 #include <wv/app/EntryPoint.h>
 
+#include <wv/rendering/Shader.h>
+
 using namespace WillowVox;
 
 namespace WVTest
@@ -9,12 +11,9 @@ namespace WVTest
     {
         void Start() override
         {
-            Logger::Log("Test");
-            Logger::Warn("Test");
-            Logger::Error("Test");
-            Logger::EngineLog("Test");
-            Logger::EngineWarn("Test");
-            Logger::EngineError("Test");
+            AssetManager& am = AssetManager::GetInstance();
+            std::shared_ptr<Shader> shader = am.GetAsset<Shader>("test_shader");
+            shader->Bind();
         }
 
         void Update() override
