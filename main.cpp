@@ -1,12 +1,6 @@
 #include <wv/core.h>
 #include <wv/app/EntryPoint.h>
 
-#include <wv/rendering/Shader.h>
-#include <wv/rendering/Texture.h>
-#include <wv/rendering/VertexArrayObject.h>
-#include <wv/rendering/Camera.h>
-#include <wv/input/Input.h>
-
 using namespace WillowVox;
 
 namespace WVTest
