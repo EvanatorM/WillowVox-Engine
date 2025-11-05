@@ -3,6 +3,7 @@
 
 #include <wv/rendering/Shader.h>
 #include <wv/rendering/Texture.h>
+#include <wv/rendering/VertexArrayObject.h>
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -35,31 +36,11 @@ namespace WVTest
                 1, 2, 3
             };
 
-            // Create and bind VAO
-            glGenVertexArrays(1, &VAO);
-            glBindVertexArray(VAO);
-
-            // Create and bind VBO
-            glGenBuffers(1, &VBO);
-            glBindBuffer(GL_ARRAY_BUFFER, VBO);
-            // Buffer vertex data into VBO
-            glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-            // Set attribute pointers
-            glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)0);
-            glEnableVertexAttribArray(0);
-            glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
-            glEnableVertexAttribArray(1);
-
-            // Create and bind EBO
-            glGenBuffers(1, &EBO);
-            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-            // Buffer index data into EBO
-            glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-
-            glBindVertexArray(0);
-            glBindBuffer(GL_ARRAY_BUFFER, 0);
-            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+            vao = std::make_unique<VertexArrayObject>();
+            vao->BufferVertexData(sizeof(vertices), vertices);
+            vao->BufferElementData(ElementBufferAttribType::UINT32, 6, indices);
+            vao->SetAttribPointer(0, 2, VertexBufferAttribType::FLOAT32, false, 4 * sizeof(float), 0);
+            vao->SetAttribPointer(1, 2, VertexBufferAttribType::FLOAT32, false, 4 * sizeof(float), 2 * sizeof(float));
         }
 
         void Update() override
@@ -71,13 +52,10 @@ namespace WVTest
         {
             shader->Bind();
             texture->BindTexture(Texture::TEX00);
-            glBindVertexArray(VAO);
-            glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+            vao->Draw();
         }
 
-        unsigned int EBO;
-        unsigned int VBO;
-        unsigned int VAO;
+        std::unique_ptr<VertexArrayObject> vao;
         std::shared_ptr<Shader> shader;
         std::shared_ptr<Texture> texture;
     };
