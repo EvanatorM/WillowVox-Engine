@@ -76,6 +76,7 @@ namespace WVTest
             vao->SetAttribPointer(1, 2, VertexBufferAttribType::FLOAT32, false, 5 * sizeof(float), 3 * sizeof(float));
 
             camera = std::make_unique<Camera>();
+            camera->m_fov = 90;
 
             Input::SetMouseMode(MouseMode::DISABLED);
         }
