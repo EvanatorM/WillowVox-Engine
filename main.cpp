@@ -3,6 +3,10 @@
 
 using namespace WillowVox;
 
+const char* WillowVox::appWindowName = "MyApp";
+int WillowVox::appDefaultWindowX = 1280;
+int WillowVox::appDefaultWindowY = 720;
+
 namespace MyProject
 {
     class MyApp : public App
