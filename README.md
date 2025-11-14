@@ -58,8 +58,6 @@ You should also replace the 'MyProject' namespace name and the 'MyApp' class nam
 
 To change the name of the window, you can change the 'appWindowName' variable near the top of main.cpp.
 
-You must also create a folder in the root directory of the project called 'assets' for the project to build.
-
 ## Contributing
 
 This project is split into different repositories, so this applies to any of those. If you would like to contribute to WillowVox Engine, you can do so in a couple of ways:

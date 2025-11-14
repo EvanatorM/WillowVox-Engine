@@ -12,6 +12,8 @@ set_target_properties(MyApp PROPERTIES
 
 include(${CMAKE_SOURCE_DIR}/cmake/modules.cmake OPTIONAL)
 
+file(MAKE_DIRECTORY assets)
+
 # Copy assets folder to build folder
 add_custom_target(copy_assets ALL
     COMMAND ${CMAKE_COMMAND} -E echo "Coping assets..."
