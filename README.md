@@ -1,6 +1,8 @@
 # WillowVox Engine
 
-A very modular game engine originally intended for voxel world games.
+A very modular game engine used primarily for WSAL Evan's projects.
+
+This branch is a project template. To create a project using WillowVox Engine, simply download the code in this branch and follow the instructions below.
 
 ## Building
 
