@@ -1,24 +1,23 @@
-# CMakeLists.txt (root)
-cmake_minimum_required(VERSION 3.15)
-project(WillowVox
-    LANGUAGES CXX C
-    VERSION 0.1.0
-)
-set(CMAKE_GENERATOR_PLATFORM x64)
+cmake_minimum_required(VERSION 3.24)
+project(MyApp LANGUAGES CXX C)
 
-# Set C++ standard
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Add engine and test projects
-add_subdirectory(external/imgui)
-add_subdirectory(engine)
-add_subdirectory(test)
+add_executable(MyApp main.cpp)
+
+set_target_properties(MyApp PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
+)
+
+include(${CMAKE_SOURCE_DIR}/cmake/modules.cmake OPTIONAL)
+
+file(MAKE_DIRECTORY assets)
 
 # Copy assets folder to build folder
 add_custom_target(copy_assets ALL
+    COMMAND ${CMAKE_COMMAND} -E echo "Coping assets..."
     COMMAND ${CMAKE_COMMAND} -E copy_directory
-    ${CMAKE_SOURCE_DIR}/test/assets
-    $<TARGET_FILE_DIR:WVTest>/assets
-    COMMENT "Copying assets"
+        ${CMAKE_SOURCE_DIR}/assets
+        $<TARGET_FILE_DIR:MyApp>/assets
 )
