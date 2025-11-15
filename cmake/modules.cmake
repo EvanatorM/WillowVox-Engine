@@ -14,4 +14,4 @@ macro(_add_engine_git_module NAME REPO COMMIT)
   target_include_directories(${PROJECT_NAME} PRIVATE ${${NAME}_SOURCE_DIR}/include)
 endmacro()
 
-_add_engine_git_module(WVCore https://github.com/EvanatorM/WV-Core.git alpha-v0.2.2)
+_add_engine_git_module(WVCore https://github.com/EvanatorM/WV-Core.git alpha-v0.2.3)
