@@ -4,6 +4,15 @@ A very modular game engine used primarily for WSAL Evan's projects.
 
 This branch is a project template. To create a project using WillowVox Engine, simply download the code in this branch and follow the instructions below.
 
+## Using this template
+To use this template, go into CMakeLists.txt and find and replace all instances of 'MyApp' with your application name.
+
+You should also replace the 'MyProject' namespace name and the 'MyApp' class name in main.cpp.
+
+To change the name of the window, you can change the 'appWindowName' variable near the top of main.cpp.
+
+All official engine modules are in the cmake/modules.cmake file under the comment that says "Engine Modules". You can uncomment any modules you intend to use for your project.
+
 ## Building
 
 <details>
@@ -52,13 +61,6 @@ The final executable can be found at `(project root)/build/bin/(build type)`
 If you're running from a command line, make sure to run
 the executable in the same directory as it is located
 to ensure all resources are loaded properly.
-
-### Using this template
-To use this template, go into CMakeLists.txt and find and replace all instances of 'MyApp' with your application name.
-
-You should also replace the 'MyProject' namespace name and the 'MyApp' class name in main.cpp.
-
-To change the name of the window, you can change the 'appWindowName' variable near the top of main.cpp.
 
 ## Contributing
 
