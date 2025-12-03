@@ -15,7 +15,7 @@ endmacro()
 # Uncomment any modules you will be using for your project
 
 # Core Module (Required)
-_fetch_git_project(WVCore https://github.com/EvanatorM/WV-Core.git alpha-v0.2.3)
+_fetch_git_project(WVCore https://github.com/EvanatorM/WV-Core.git alpha-v0.3.0)
 target_link_libraries(${PROJECT_NAME} PRIVATE WVCore)
 target_include_directories(${PROJECT_NAME} PRIVATE ${wvcore_SOURCE_DIR}/include)
 
