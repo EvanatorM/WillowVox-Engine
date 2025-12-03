@@ -3,6 +3,10 @@
 
 using namespace WillowVox;
 
+const char* WillowVox::appWindowName = "WV Test";
+int WillowVox::appDefaultWindowX = 600;
+int WillowVox::appDefaultWindowY = 480;
+
 namespace WVTest
 {
     class TestApp : public App
@@ -79,6 +83,25 @@ namespace WVTest
             camera->m_fov = 90;
 
             Input::SetMouseMode(MouseMode::DISABLED);
+
+            threadPool.Enqueue([] {
+                Logger::Log("Low priority");
+                }, Priority::Low);
+            threadPool.Enqueue([] {
+                Logger::Log("High priority");
+                }, Priority::High);
+            threadPool.Enqueue([] {
+                Logger::Log("Medium priority");
+                });
+            threadPool.Start(2);
+            for (int i = 0; i < 10; i++)
+            {
+                std::this_thread::sleep_for(std::chrono::milliseconds(10));
+                threadPool.Enqueue([i] {
+                    std::this_thread::sleep_for(std::chrono::milliseconds(2));
+                    Logger::Log("Job ran: %d", i);
+                });
+            }
         }
 
         void Update() override
@@ -156,6 +179,8 @@ namespace WVTest
         float m_speed = 5.0f;
         float m_sensitivity = 0.7f;
         bool m_mouseDisabled = true;
+
+        ThreadPool threadPool;
     };
 }
 
