@@ -14,10 +14,16 @@ include(${CMAKE_SOURCE_DIR}/cmake/modules.cmake OPTIONAL)
 
 file(MAKE_DIRECTORY assets)
 
+target_compile_definitions(MyApp PUBLIC
+$<$<CONFIG:Debug>:DEBUG_MODE>
+$<$<CONFIG:Release>:RELEASE_MODE>
+)
+
 # Copy assets folder to build folder
-add_custom_target(copy_assets ALL
-    COMMAND ${CMAKE_COMMAND} -E echo "Copying assets..."
-    COMMAND ${CMAKE_COMMAND} -E copy_directory
-        ${CMAKE_SOURCE_DIR}/assets
-        $<TARGET_FILE_DIR:MyApp>/assets
+add_custom_command(
+  TARGET ScuffedMinecraft POST_BUILD
+  COMMAND ${CMAKE_COMMAND} -E copy_directory 
+    ${CMAKE_SOURCE_DIR}/assets
+    $<TARGET_FILE_DIR:MyApp>/assets
+  COMMENT "Copying assets"
 )
