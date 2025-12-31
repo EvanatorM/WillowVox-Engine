@@ -49,7 +49,7 @@ cmake ..
 After that you can build the project using:
 
 ```sh
-cmake --build .
+cmake --build build
 ```
 
 Run the build command in the project root directory.
