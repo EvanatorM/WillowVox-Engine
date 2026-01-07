@@ -49,6 +49,12 @@ cmake ..
 After that you can build the project using:
 
 ```sh
+cmake --build .
+```
+
+If you are building from the root directory, use this command:
+
+```sh
 cmake --build build
 ```
 
